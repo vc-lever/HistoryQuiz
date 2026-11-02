@@ -18,6 +18,10 @@ os.makedirs('data', exist_ok=True)
 def home():
     return flask.render_template('submit.html')
 
+@application.route('/about')
+def about():
+     return "History quiz"
+
 
 
 @application.route('/api/submit', methods=['POST'])
