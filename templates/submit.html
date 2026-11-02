@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History quiz: submit your questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='history_quiz.css') }}">
+</head>
+<body>
+    <h1>Submit your questions</h1>
+
+    <form id="submit_form">
+        <label for="student_name">Your name:</label>
+        <input id="student_name" name="student_name" required>
+
+        {% for question in range(1, 2) %}
+        <p>Question {{ question }}</p>
+        <label for="question_{{question}}">Enter question {{question}} text:</label>
+        <input id="question_{{question}}" name="question_{{question}}" required>
+            {% for answer in range(1, 3) %}
+            <br>
+            <label for="question_{{question}}_answer_{{answer}}">Enter answer {{answer}}</label>
+                <input id="question_{{question}}_answer_{{answer}}" name="question_{{question}}_answer_{{answer}}" required>
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <br>
+        <button id="submit_button" type="button">Submit</button>
+        <p id="submit_status" role="status" aria-live="polite"></p>
+
+    </form>
+
+    <script src="{{ url_for('static', filename='submit.js') }}"></script>
+</body>
+</html>
