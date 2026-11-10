@@ -13,11 +13,11 @@
         <label for="student_name">Your name:</label>
         <input id="student_name" name="student_name" required>
 
-        {% for question in range(1, 2) %}
+        {% for question in range(1, 6) %}
         <p>Question {{ question }}</p>
         <label for="question_{{question}}">Enter question {{question}} text:</label>
         <input id="question_{{question}}" name="question_{{question}}" required>
-            {% for answer in range(1, 3) %}
+            {% for answer in range(1, 5) %}
             <br>
             <label for="question_{{question}}_answer_{{answer}}">Enter answer {{answer}}</label>
                 <input id="question_{{question}}_answer_{{answer}}" name="question_{{question}}_answer_{{answer}}" required>
