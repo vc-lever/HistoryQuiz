@@ -4,7 +4,7 @@ import uuid
 
 def transform(input_json: dict) -> dict:
     timestamp = datetime.now().isoformat()
-    submission_id = uuid.uuid4()
+    submission_id = str(uuid.uuid4())
 
     questions = []
     for q in range(1, 6):
@@ -20,11 +20,11 @@ def transform(input_json: dict) -> dict:
             'student_name': input_json['student_name'],
             'timestamp': timestamp,
             # assemble question in the output format
-            # timestamp
-            # uuid
-            # andweres
-            # author
+            'question': question_text,
+            'uuid': submission_id,
+            'answers': answers,
             # correct answer
+            
         }
         questions.append(question)      
     return questions
