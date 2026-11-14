@@ -11,6 +11,8 @@ def transform(input_json: dict) -> dict:
         question_key = f'question_{q}'
         question_text = input_json[question_key]
         answers = []
+        correct_answer_key = f'correct_answer{q}'
+        correct_answer = input_json[correct_answer_key]
         for a in range(1, 5):
             answer_key = f'question_{q}_answer_{a}'
             answer_text = input_json[answer_key]
@@ -23,7 +25,7 @@ def transform(input_json: dict) -> dict:
             'question': question_text,
             'uuid': submission_id,
             'answers': answers,
-            # correct answer
+            'correct answer': correct_answer
             
         }
         questions.append(question)      
@@ -36,4 +38,3 @@ if __name__ == '__main__':
     output_json = transform(input_json)
     with open(r'data\transformed_submission.json', 'w') as f:
         json.dump(output_json, f, indent=4)
-

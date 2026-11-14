@@ -17,11 +17,20 @@
         <p>Question {{ question }}</p>
         <label for="question_{{question}}">Enter question {{question}} text:</label>
         <input id="question_{{question}}" name="question_{{question}}" required>
+        <p>Enter answers and select the correct one</p>
             {% for answer in range(1, 5) %}
-            <br>
             <label for="question_{{question}}_answer_{{answer}}">Enter answer {{answer}}</label>
                 <input id="question_{{question}}_answer_{{answer}}" name="question_{{question}}_answer_{{answer}}" required>
+                <input type="radio" name="correct_answer{{question}}" value="{{answer}}" required>    
+                <br>
             {% endfor %}
+            <!--input type="radio" id="1{{question}}" name="correct_answer{{question}}" value="1">
+            <input type="radio" id="2{{question}}" name="correct_answer{{question}}" value="2">
+            <label for="correct_answer{{question}}">2</label><br>
+            <input type="radio" id="3{{question}}" name="correct_answer{{question}}" value="3">
+            <label for="correct_answer{{question}}">3</label><br>
+            <input type="radio" id="4{{question}}" name="correct_answer{{question}}" value="4">
+            <label for="correct_answer{{question}}">4</label><br-->
         {% endfor %}
         <br>
         <br>
